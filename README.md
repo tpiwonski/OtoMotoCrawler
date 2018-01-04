@@ -6,7 +6,7 @@
 
 where `2` is the number of pages to import
 
-## Monitoring imported offers
+## Monitoring imported offers and sending SMS for sold offers
 
 `python manage.py monitor`
 

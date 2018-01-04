@@ -15,7 +15,7 @@ class OffersList(generic.ListView):
     context_object_name = 'offers'
 
     def get_queryset(self):
-        return Offer.objects.all()
+        return Offer.objects.filter(sold=False)
 
 
 class ModelsList(generic.ListView):
@@ -23,5 +23,5 @@ class ModelsList(generic.ListView):
     context_object_name = 'models'
 
     def get_queryset(self):
-        return Offer.objects.values('car_model').annotate(
+        return Offer.objects.filter(sold=False).values('car_model').annotate(
             Sum('offer_price'), Avg('offer_price'), Min('offer_price'), Max('offer_price'))
