@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if models %}
+        <table border="1">
+            <tr>
+                <th>Model</th>
+                <th>Cena sumaryczna</th>
+                <th>Cena średnia</th>
+                <th>Cena minimalna</th>
+                <th>Cena maksymalna</th>
+            </tr>
+            {% for model in models %}
+                <tr>
+                    <td>{{ model.car_model }}</td>
+                    <td>{{ model.offer_price__sum }}</td>
+                    <td>{{ model.offer_price__avg }}</td>
+                    <td>{{ model.offer_price__min }}</td>
+                    <td>{{ model.offer_price__max }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        No models
+    {% endif %}
+{% endblock content %}

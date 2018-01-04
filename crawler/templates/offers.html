@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if offers %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nazwa</th>
+                <th>Cena</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Nazwa sprzedawcy</th>
+                <th>Numer telefonu</th>
+            </tr>
+            {% for offer in offers %}
+                <tr>
+                    <td><a href="{{ offer.offer_url }}">{{ offer.offer_id }}</a></td>
+                    <td>{{ offer.offer_name }}</td>
+                    <td>{{ offer.offer_price }}</td>
+                    <td>{{ offer.car_brand }}</td>
+                    <td>{{ offer.car_model }}</td>
+                    <td>{{ offer.dealer_name }}</td>
+                    <td>{{ offer.dealer_phone }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        No offers.
+    {% endif %}
+{% endblock content %}
